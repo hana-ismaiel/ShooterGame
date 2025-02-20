@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveSpawner : MonoBehaviour {
+public class WaveSpawner : MonoBehaviour
+{
     public GameObject prefab;
     public float startTime;
     public float endTime;
     public float spawnRate;
 
     void Start() {
+        WavesManager.instance.AddWave(this);
         InvokeRepeating("Spawn", startTime, spawnRate);
-        Invoke("CancelInvoke", endTime);
+        Invoke("EndSpawner", endTime);
     }
 
     void Spawn() {
@@ -18,6 +20,7 @@ public class WaveSpawner : MonoBehaviour {
     }
 
     void EndSpawner() {
+        WavesManager.instance.RemoveWave(this);
         CancelInvoke();
     }
 }
