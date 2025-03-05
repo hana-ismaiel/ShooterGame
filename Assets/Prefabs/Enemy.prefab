@@ -98,11 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5623542588278036194, guid: 4867a4e5b54954e5c9b68c2da8ce29d2, type: 3}
       propertyPath: m_Drag
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5623542588278036194, guid: 4867a4e5b54954e5c9b68c2da8ce29d2, type: 3}
       propertyPath: m_AngularDrag
-      value: 10
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623542588278036194, guid: 4867a4e5b54954e5c9b68c2da8ce29d2, type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5623542588278036194, guid: 4867a4e5b54954e5c9b68c2da8ce29d2, type: 3}
       propertyPath: m_Interpolate
@@ -110,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5623542588278036194, guid: 4867a4e5b54954e5c9b68c2da8ce29d2, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6003734711696924249, guid: 4867a4e5b54954e5c9b68c2da8ce29d2, type: 3}
       propertyPath: m_LocalPosition.x
