@@ -15,6 +15,7 @@ public class EnemyFSM : MonoBehaviour {
     public Sight sightSensor;
     public float baseAttackDistance;
     public float playerAttackDistance;
+    public AudioSource shootSound;
 
     void Awake() {
         baseTransform = GameObject.Find("BaseDamagePoint").transform;
@@ -129,6 +130,7 @@ public class EnemyFSM : MonoBehaviour {
         }
         lastShootTime = Time.time;
         Instantiate(bulletPrefab, transform.position, transform.rotation);
+        shootSound.Play();
     }
 
     void OnDrawGizmos() {
