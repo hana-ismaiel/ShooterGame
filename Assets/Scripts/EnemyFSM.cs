@@ -16,14 +16,15 @@ public class EnemyFSM : MonoBehaviour {
     public float baseAttackDistance;
     public float playerAttackDistance;
     public AudioSource shootSound;
+    Animator animator;
 
     void Awake() {
         baseTransform = GameObject.Find("BaseDamagePoint").transform;
         agent = GetComponentInParent<NavMeshAgent>();
+        animator = GetComponentInParent<Animator>();
     }
 
     void Update() {
-        CheckGameOver();
         if (currentState == EnemyState.GoToBase)
             GoToBase();
         else if (currentState == EnemyState.AttackBase)
@@ -34,51 +35,33 @@ public class EnemyFSM : MonoBehaviour {
             AttackPlayer();
     }
 
-    void CheckGameOver() {
-        if (sightSensor.detectedObject == null && baseTransform == null) {
-            ShowLoseScreen();
-        }
-    }
-
-    void ShowLoseScreen() {
-        SceneManager.LoadScene("LoseScreen");
-    }
-    
-
     void GoToBase() {
-        if (baseTransform != null) {
-            agent.isStopped = false;
-            agent.SetDestination(baseTransform.position);
-            
-            if (sightSensor.detectedObject != null) {
-                currentState = EnemyState.ChasePlayer;
-            }
+        animator.SetBool("Shooting", false);
+        agent.isStopped = false;
+        
+        agent.SetDestination(baseTransform.position);
+        
+        if (sightSensor.detectedObject != null)
+            currentState = EnemyState.ChasePlayer;
 
-            float distanceToBase = Vector3.Distance(transform.position, baseTransform.position);
-            if (distanceToBase <= baseAttackDistance) {
-                currentState = EnemyState.AttackBase;
-            }
-        } else {
-            ShowLoseScreen();
-        }
+        float distanceToBase = Vector3.Distance(
+            transform.position,
+            baseTransform.position);
+        
+        if (distanceToBase <= baseAttackDistance)
+            currentState = EnemyState.AttackBase;
     }
 
 
     void ChasePlayer() {
+        animator.SetBool("Shooting", false);
         agent.isStopped = false;
 
         if (sightSensor.detectedObject == null) {
-            if (baseTransform == null) {
-                ShowLoseScreen();
-                return;
-            } else {
-                currentState = EnemyState.GoToBase;
-                return;
-            }
+            currentState = EnemyState.GoToBase;
+            return;
         }
-
         agent.SetDestination(sightSensor.detectedObject.transform.position);
-
         float distanceToPlayer = Vector3.Distance(transform.position, sightSensor.detectedObject.transform.position);
         if (distanceToPlayer <= playerAttackDistance) {
             currentState = EnemyState.AttackPlayer;
@@ -89,18 +72,12 @@ public class EnemyFSM : MonoBehaviour {
         agent.isStopped = true;
 
         if (sightSensor.detectedObject == null) {
-            if (baseTransform == null) {
-                ShowLoseScreen();
-                return;
-            } else {
-                currentState = EnemyState.GoToBase;
-                return;
-            }
+            currentState = EnemyState.GoToBase;
+            return;
         }
 
         LookTo(sightSensor.detectedObject.transform.position);
         Shoot();
-        
         float distanceToPlayer = Vector3.Distance(transform.position, sightSensor.detectedObject.transform.position);
         if (distanceToPlayer > playerAttackDistance * 1.1f) {
             currentState = EnemyState.ChasePlayer;
@@ -109,12 +86,8 @@ public class EnemyFSM : MonoBehaviour {
 
     void AttackBase() {
         agent.isStopped = true;
-        if (baseTransform != null) {
-            LookTo(baseTransform.position);
-            Shoot();
-        } else {
-            ShowLoseScreen();
-        }
+        LookTo(baseTransform.position);
+        Shoot();
     }
 
     void LookTo(Vector3 targetPosition) {
@@ -124,13 +97,17 @@ public class EnemyFSM : MonoBehaviour {
     }
 
     void Shoot() {
-        var timeSinceLastShoot = Time.time - lastShootTime;
-        if (timeSinceLastShoot < fireRate) {
-            return;
+        animator.SetBool("Shooting", true);
+
+        if (Time.timeScale > 0) {
+            var timeSinceLastShoot = Time.time - lastShootTime;
+            if (timeSinceLastShoot < fireRate) {
+                return;
+            }
+            lastShootTime = Time.time;
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+            shootSound.Play();
         }
-        lastShootTime = Time.time;
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
-        shootSound.Play();
     }
 
     void OnDrawGizmos() {
