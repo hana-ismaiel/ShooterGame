@@ -7189,7 +7189,7 @@ GameObject:
   - component: {fileID: 413635797}
   - component: {fileID: 413635796}
   m_Layer: 5
-  m_Name: HealthBar
+  m_Name: GreenHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17769,6 +17769,7 @@ GameObject:
   - component: {fileID: 491186854}
   - component: {fileID: 491186856}
   - component: {fileID: 491186855}
+  - component: {fileID: 491186857}
   m_Layer: 5
   m_Name: BulletsText
   m_TagString: Untagged
@@ -17894,6 +17895,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491186853}
   m_CullTransparentMesh: 1
+--- !u!114 &491186857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491186853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c13daf11535b41e5a7dde2845693d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetShooting: {fileID: 1917583533}
 --- !u!1 &491460529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 0577c0ca7d5215b40b00822d5aa8dc39, type: 3}
@@ -19041,7 +19055,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -19676,6 +19690,7 @@ GameObject:
   - component: {fileID: 635187739}
   - component: {fileID: 635187741}
   - component: {fileID: 635187740}
+  - component: {fileID: 635187742}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -19740,6 +19755,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635187738}
   m_CullTransparentMesh: 1
+--- !u!114 &635187742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635187738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa88fa308192407e859789714e0a1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLife: {fileID: 1917583532}
 --- !u!1001 &635340814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20292,6 +20320,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &656848710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656848712}
+  - component: {fileID: 656848711}
+  m_Layer: 0
+  m_Name: Pause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &656848711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656848710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08e217f63566432090b9699e0ff7be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1669522409}
+  resumeButton: {fileID: 1781866299}
+--- !u!4 &656848712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656848710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 87.32291, y: 37.905296, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662014455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 0577c0ca7d5215b40b00822d5aa8dc39, type: 3}
@@ -20422,7 +20496,7 @@ GameObject:
   - component: {fileID: 704265634}
   - component: {fileID: 704265633}
   m_Layer: 5
-  m_Name: HealthBarFrame
+  m_Name: GreenHealthBarFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25046,6 +25120,7 @@ GameObject:
   - component: {fileID: 1275171488}
   - component: {fileID: 1275171490}
   - component: {fileID: 1275171489}
+  - component: {fileID: 1275171491}
   m_Layer: 5
   m_Name: EnemiesText
   m_TagString: Untagged
@@ -25171,6 +25246,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275171487}
   m_CullTransparentMesh: 1
+--- !u!114 &1275171491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275171487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb432a42a39fd4701822ee4ef8e18898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1275705497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25479,6 +25566,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 860793eb3324391468f1c120a75ec049, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6a4d61b655a154167a65edcdb249fc7b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -26450,6 +26541,7 @@ GameObject:
   - component: {fileID: 1542275107}
   - component: {fileID: 1542275109}
   - component: {fileID: 1542275108}
+  - component: {fileID: 1542275110}
   m_Layer: 5
   m_Name: WavesText
   m_TagString: Untagged
@@ -26575,6 +26667,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542275106}
   m_CullTransparentMesh: 1
+--- !u!114 &1542275110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542275106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84bb0b3011144b738f94ae67564eed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1553130085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38812,6 +38916,7 @@ GameObject:
   - component: {fileID: 1764745040}
   - component: {fileID: 1764745042}
   - component: {fileID: 1764745041}
+  - component: {fileID: 1764745043}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -38937,6 +39042,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764745039}
   m_CullTransparentMesh: 1
+--- !u!114 &1764745043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764745039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931caa4ac6f9c47cc9cbf9732caf7e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1766518224 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 0577c0ca7d5215b40b00822d5aa8dc39, type: 3}
@@ -44078,6 +44195,7 @@ GameObject:
   - component: {fileID: 1832863905}
   - component: {fileID: 1832863904}
   - component: {fileID: 1832863903}
+  - component: {fileID: 1832863906}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -44187,6 +44305,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832863901}
   m_CullTransparentMesh: 1
+--- !u!114 &1832863906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832863901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cc1c277d2ce42aa9f02a1a2601345d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1841854242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44885,6 +45015,7 @@ MonoBehaviour:
   prefab: {fileID: 7918603929029572990, guid: 489c8df740b5a4818aeacfcc9ae526dc, type: 3}
   shootPoint: {fileID: 1662422982}
   shootSound: {fileID: 2113190018}
+  bulletsAmount: 100
 --- !u!114 &1917583534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47300,3 +47431,4 @@ SceneRoots:
   - {fileID: 2039999389}
   - {fileID: 578447952}
   - {fileID: 1641213673}
+  - {fileID: 656848712}
